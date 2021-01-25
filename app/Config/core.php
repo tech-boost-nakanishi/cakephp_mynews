@@ -21,6 +21,9 @@
 //setLocale(LC_ALL, 'deu');
 //Configure::write('Config.language', 'deu');
 
+	//アプリケーションの名前
+	Configure::write('App.name','MyNews');
+
 /**
  * CakePHP Debug Level:
  *
@@ -233,12 +236,12 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi');
+	Configure::write('Security.salt', 'GU0wvfRD1hbDl7xS0Pgfjlzv02Twiyj58EYD8zxr');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '76859309657453542496749683645');
+	Configure::write('Security.cipherSeed', '892231311382248386958042033645');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).

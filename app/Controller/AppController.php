@@ -20,6 +20,7 @@
  */
 
 App::uses('Controller', 'Controller');
+App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 
 /**
  * Application Controller
@@ -31,4 +32,34 @@ App::uses('Controller', 'Controller');
  * @link		https://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	public $components = array('Security', 'DebugKit.Toolbar', 'Session',
+		'Auth' => array(
+			'loginAction' => array('controller' => 'users', 'action' => 'login'),
+			'loginRedirect' => array('controller' => 'users', 'action' => 'dashboard'),
+			'authenticate' => array('Form' => array('fields' => Array('username' => 'email')))
+		)
+	);
+
+	public $uses = array('User');
+
+
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Security->validatePost = false;
+		$this->Security->csrfUseOnce = false;
+		$auth = $this->Auth->user();
+		$user = null;
+		if($auth){
+			$passwordHasher = new SimplePasswordHasher();
+			$user = $this->User->find('first', array(
+		        'conditions' => array(
+		        	'email' => $this->Session->read('Auth.User.email'),
+		        )
+		    ));
+		    $auth = $user['User'];
+			$this->Session->write('Auth.User.id', $auth['id']);
+			unset($auth['password']);
+		}
+		$this->set(compact('auth'));
+	}
 }
