@@ -1,5 +1,5 @@
 <div>
-	<?php echo $this->Form->create('User', array('novalidate'=>true, 'class' => 'form-horizontal', 'url'=>'http://0.0.0.0:80/signup/emailcheck/' . $email . '/' . $token));?>
+	<?php echo $this->Form->create('User', array('novalidate'=>true, 'class' => 'form-horizontal', 'url'=>'/signup/emailcheck/' . $email . '/' . $token));?>
 	<fieldset>
 		<legend>ユーザー登録</legend>
 		<p>メールアドレス：<?php echo h($email); ?></p>

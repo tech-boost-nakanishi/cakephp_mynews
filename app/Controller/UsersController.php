@@ -20,9 +20,9 @@ class UsersController extends AppController {
 		            ->to($email)
 		            ->subject('仮登録ありがとうございます')
 		            ->send(
-		            	'仮登録ありがとうございます\n
-		            	下記URLをクリックして本登録を完了してください。\n
-		            	http://0.0.0.0:80/signup/emailcheck/' . $email . '/' . $token
+		            	'仮登録ありがとうございます。' . "\n" .
+		            	'下記URLをクリックして本登録を完了してください。' . "\n" .
+		            	'http://' . $_SERVER['HTTP_HOST'] . '/signup/emailcheck/' . $email . '/' . $token
 		            );
 
 	        	$this->redirect(array('action'=>'pre_check'));
