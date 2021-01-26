@@ -48,18 +48,18 @@ class AppController extends Controller {
 		$this->Security->validatePost = false;
 		$this->Security->csrfUseOnce = false;
 		$auth = $this->Auth->user();
-		$user = null;
-		if($auth){
-			$passwordHasher = new SimplePasswordHasher();
-			$user = $this->User->find('first', array(
-		        'conditions' => array(
-		        	'email' => $this->Session->read('Auth.User.email'),
-		        )
-		    ));
-		    $auth = $user['User'];
-			$this->Session->write('Auth.User.id', $auth['id']);
-			unset($auth['password']);
-		}
+		// $user = null;
+		// if($auth){
+		// 	$passwordHasher = new SimplePasswordHasher();
+		// 	$user = $this->User->find('first', array(
+		//         'conditions' => array(
+		//         	'email' => $this->Session->read('Auth.User.email'),
+		//         )
+		//     ));
+		//     $auth = $user['User'];
+		// 	$this->Session->write('Auth.User.id', $auth['id']);
+		// 	unset($auth['password']);
+		// }
 		$this->set(compact('auth'));
 	}
 }

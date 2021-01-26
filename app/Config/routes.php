@@ -33,6 +33,8 @@
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/signup', array('controller' => 'users', 'action' => 'signup'));
+	Router::connect('/signup/emailcheck', array('controller' => 'users', 'action' => 'pre_check'));
+	Router::connect('/signup/emailcheck/:email/:token', array('controller' => 'users', 'action' => 'main_check', 'email' => '/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/', 'token' => '/^[a-zA-Z0-9]+$/'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
