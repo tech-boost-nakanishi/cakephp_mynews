@@ -46,7 +46,9 @@ class PostsController extends AppController {
 					$this->redirect(array('action'=>'view', $id));
 				}
 			}
-		}
+		}else{
+    		throw new NotFoundException();
+    	}
 	}
 
 	public function delete($id = null){

@@ -3,8 +3,8 @@
     <fieldset>
         <legend>ログイン</legend>
         <?php
-        echo $this->Form->input('email', array( 'label' => 'メールアドレス', 'requred'=>true));
-        echo $this->Form->input('password', array( 'label' => 'パスワード', 'requred'=>true));
+        echo $this->Form->input('email', array( 'label' => 'メールアドレス', 'requred'=>false));
+        echo $this->Form->input('password', array( 'label' => 'パスワード', 'requred'=>false));
         echo $this->Form->submit('ログイン');
         ?>
     </fieldset>
