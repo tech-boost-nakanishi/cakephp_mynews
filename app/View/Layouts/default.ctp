@@ -22,7 +22,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $cakeDescription ?>:
 		<?php echo $this->fetch('title'); ?>
 	</title>
 	<?php
@@ -57,7 +56,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<?php echo $this->Html->link(Configure::read('App.name'), '/', array('class'=>'navbar-brand')); ?>
+					<?php echo $this->Html->link(env('APP_NAME'), '/', array('class'=>'navbar-brand')); ?>
 				</div>
 
 				<div class="collapse navbar-collapse" id="navbarEexample">

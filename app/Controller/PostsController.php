@@ -37,7 +37,7 @@ class PostsController extends AppController {
 
 	public function edit($id = null){
 		$this->Post->id = $id;
-		if($this->Post->field('user_id') == $this->Session->read('Auth.User.id')){
+		if($this->Post->field('user_id') == $this->Auth->user('id')){
 			if($this->request->is('get')){
 				$this->request->data = $this->Post->read();
 			}else{
@@ -46,7 +46,9 @@ class PostsController extends AppController {
 					$this->redirect(array('action'=>'view', $id));
 				}
 			}
-		}
+		}else{
+    		throw new NotFoundException();
+    	}
 	}
 
 	public function delete($id = null){
