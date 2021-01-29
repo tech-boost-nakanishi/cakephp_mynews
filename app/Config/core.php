@@ -21,8 +21,15 @@
 //setLocale(LC_ALL, 'deu');
 //Configure::write('Config.language', 'deu');
 
-	//アプリケーションの名前
-	Configure::write('App.name','MyNews');
+	include (ROOT . DS . 'vendors' . DS . 'autoload.php');
+
+if(!env('APP_NAME')){
+$dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
+$dotenv->parse()
+  ->putenv(true)
+  ->toEnv()
+  ->toServer();
+}
 
 /**
  * CakePHP Debug Level:
@@ -37,7 +44,7 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-	Configure::write('debug', 2);
+	Configure::write('debug', (int)env('DEBUG'));
 
 /**
  * Configure the Error handler used to handle errors for your application. By default
