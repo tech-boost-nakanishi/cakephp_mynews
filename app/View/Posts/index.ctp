@@ -20,5 +20,3 @@
 		<?php endforeach; ?>
 	</tbody>
 </table>
-
-<?php debug($_ENV); ?>
