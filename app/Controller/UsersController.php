@@ -15,7 +15,7 @@ class UsersController extends AppController {
 			$email = $this->request->data['PreUser']['email'];
 			$token = AuthComponent::password(random_int(111111, 999999));
         	if($this->PreUser->save(['email' => $email,'token' => $token])){
-		        $cakemail = new CakeEmail('gmail');
+		        $cakemail = new CakeEmail('default');
 		        $sent = $cakemail
 		            ->to($email)
 		            ->subject('仮登録ありがとうございます')
