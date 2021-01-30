@@ -8,7 +8,6 @@
 /build
 /dist
 /tags
-composer.lock
 *.mo
 
 # IDE and editor specific files #
