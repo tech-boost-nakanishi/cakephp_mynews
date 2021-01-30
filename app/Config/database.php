@@ -71,7 +71,7 @@ class DATABASE_CONFIG {
 
 	function __construct() {
 		$this->default = array(
-		  'datasource' => 'Database/Mysql',
+		  'datasource' => getenv('DB_DATASOURCE'),
 		  'persistent' => false,
 		  'host'       => getenv('DB_HOST'),
 		  'login'      => getenv('DB_USERNAME'),
